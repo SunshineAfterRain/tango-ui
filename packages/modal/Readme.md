@@ -7,7 +7,6 @@
       <template #desc="{ user }">
         开通会员，每日不限匹配次数a {{user}}
       </template>
-      
     </modal>
   </div>
 </template>

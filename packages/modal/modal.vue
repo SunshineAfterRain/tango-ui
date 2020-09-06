@@ -43,22 +43,25 @@ import '../index.less'
         type: Boolean,
         default: false
       },
-      // 标题
+     /** 
+      * 标题
+      * 
+      */ 
       title: {
         type: String,
         default: ''
       },
-      // 内容描述
+      /** 内容描述*/ 
       desc: {
         type: String,
         default: ''
       },
-      // 取消文案
+      /** 取消文案*/ 
       cancelText: {
         type: String,
         default: '以后再说'
       },
-      // 确定文案
+      /** 确定文案*/  
       okText: {
         type: String,
         default: '我知道了'
