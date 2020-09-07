@@ -1,7 +1,7 @@
 ```vue
 <template>
   <div id="app">
-    <div @click="open">打开弹窗</div>
+    <a  style="font-size:16px; cursor:pointer" @click="open" >打开弹窗</a>
     <modal  v-model="visible" title="确定拉到黑名单？" desc="拉黑后你将不再受到对方消息">
       你还不是会员
       <template #desc="{ user }">
@@ -39,6 +39,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  font-size: 16px
   /deep/
   .btn {
     line-height: 1rem;
