@@ -431,6 +431,18 @@ vue create chuman-ui
 1. 创建packages文件夹用来存放组件库源码。
 2. 创建组件文件，一个组件至少包括两个文件，一个index.js用来导出组件作为插件使用，一个.vue文件，用来编写组件。
 
+modal组件下的index.js
+```
+import modal from './modal.vue'
+modal.install = (Vue)=>{
+  Vue.component(modal.name, modal)
+}
+export default modal
+```
+
+
+文件目录
+![](https://note.youdao.com/yws/api/personal/file/WEB3834104fa3870fb021ea135d9bda22ac?method=download&shareKey=782e55d077eadd7e85a82e627dbd4f3f)
 
 
 
@@ -667,7 +679,6 @@ module.exports = {
   exampleMode: 'expand',                 // 是否展开示例代码
   styleguideDir: 'styleguide',           // 打包的目录
   codeSplit: true,                       // 打包时是否进行分片
-  skipComponentsWithoutExample: true,    // 是否跳过没有样例的组件
 };
 ```
 编写好的组件注释
@@ -891,8 +902,36 @@ export default {
 
 ```
 效果图
-![](https://note.youdao.com/yws/api/personal/file/WEBe6848e1fd567eb9acf3e13e9f5247e89?method=download&shareKey=f7587c0f922e379b46ed2bb4dc4f1990)
+![](https://note.youdao.com/yws/api/personal/file/WEB88654f425698b14f380b6f3344332bfa?method=download&shareKey=d3b0f7142aa4ad4990891305d977be9a)
 ![](https://note.youdao.com/yws/api/personal/file/WEBcbb793ff3ab0fc39e7e4465b86e511d2?method=download&shareKey=075457ed7125905e26d3d5e00d00cca8)
 
+
+### 发布到npm
+
+发布到npm这一步比较简单，首先得注册npm账号， 然后修改packages.js配置
+
+```
+{
+  "name": "chuman-ui", // 包名
+  "version": "0.4.0", // 每次发布都要修改版本号
+  "private": false, // 这里传到npm 必须设置false，表示是公开的包，除非给钱
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "styleguide": "vue-styleguidist server",
+    "styleguide:build": "vue-styleguidist build"
+  },
+  "main": "lib/index/index.js", // 访问入口
+  "files": [ "lib" ] //需要发布到npm的文件， 一般是打包后的文件夹
+}
+```
+
+然后就是登录发布了
+```
+npm login
+
+npm publish
+```
 
   
